@@ -1,4 +1,4 @@
-package tasca1.n1e1;
+package tasca1.n1;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;

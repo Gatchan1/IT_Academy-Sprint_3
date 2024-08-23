@@ -1,6 +1,4 @@
-package tasca1.n1e1;
-
-import java.util.Scanner;
+package tasca1.n1;
 
 public class Main {
     private static final String symbols = "x*/+-";
