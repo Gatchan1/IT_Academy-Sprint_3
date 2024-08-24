@@ -18,19 +18,23 @@ public class Main {
 
     private static void menu() {
         boolean exit = false;
-        do{
-            switch(options()){
-                case 1: newCommand();
+        do {
+            switch (options()) {
+                case 1:
+                    newCommand();
                     break;
-                case 2: undoCommand();
+                case 2:
+                    undoCommand();
                     break;
-                case 3: showCommandsHistory();
+                case 3:
+                    showCommandsHistory();
                     break;
-                case 0: System.out.println("Gràcies per utilitzar l'aplicació");
+                case 0:
+                    System.out.println("Gràcies per utilitzar l'aplicació");
                     exit = true;
                     break;
             }
-        }while(!exit);
+        } while (!exit);
     }
 
     private static void newCommand() {
@@ -57,13 +61,12 @@ public class Main {
     }
 
 
-    private static byte options(){
+    private static byte options() {
         byte option;
         final byte min = 0;
         final byte max = 3;
 
-        do{
-            System.out.println();
+        do {
             option = Input.readByte("""
                     Escoge la opción deseada:
                     1. Seguir operando.
@@ -71,10 +74,10 @@ public class Main {
                     3. Ver listado de últimos comandos.
                     0. Cerrar la calculadora.
                     """);
-            if(option < min || option > max){
+            if (option < min || option > max) {
                 System.out.println("Escoge una opción válida");
             }
-        }while(option < min || option > max);
+        } while (option < min || option > max);
         return option;
     }
 
@@ -88,35 +91,35 @@ public class Main {
             noErrors = true;
         } catch (ArithmeticException e) {
             System.out.println("No se puede dividir entre cero.");
-        } catch (CommandFormatException | NumberFormatException | IndexOutOfBoundsException e ) {
+        } catch (CommandFormatException | NumberFormatException | IndexOutOfBoundsException e) {
             System.out.println("El comando introducido no es válido.");
         }
         return noErrors;
     }
 
     private static void execute(char operator, double number) throws ArithmeticException {
-         switch (operator) {
-             case 'x':
-             case '*':
-                 result = result * number;
-                 break;
-             case '/':
-                 if (number == 0) {
-                     throw new ArithmeticException();
-                 }
-                 result = result / number;
-                 break;
-             case '+':
-                 result = result + number;
-                 break;
-             case '-':
-                 result = result - number;
-                 break;
-         }
+        switch (operator) {
+            case 'x':
+            case '*':
+                result = result * number;
+                break;
+            case '/':
+                if (number == 0) {
+                    throw new ArithmeticException();
+                }
+                result = result / number;
+                break;
+            case '+':
+                result = result + number;
+                break;
+            case '-':
+                result = result - number;
+                break;
+        }
     }
 
     private static char getOperator(String command) throws CommandFormatException {
-        if (command.isEmpty() || !symbols.contains(""+command.charAt(0))) {
+        if (command.isEmpty() || !symbols.contains("" + command.charAt(0))) {
             throw new CommandFormatException("El operador introducido no es válido.");
         }
         return command.charAt(0);
