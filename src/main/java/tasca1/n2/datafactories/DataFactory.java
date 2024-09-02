@@ -1,7 +1,7 @@
 package tasca1.n2.datafactories;
 
-import tasca1.n2.Address;
-import tasca1.n2.Phone;
+import tasca1.n2.addresses.Address;
+import tasca1.n2.phones.Phone;
 
 public interface DataFactory {
     Phone createPhone(String number);

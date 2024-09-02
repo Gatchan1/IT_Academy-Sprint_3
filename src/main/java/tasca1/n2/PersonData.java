@@ -1,5 +1,8 @@
 package tasca1.n2;
 
+import tasca1.n2.addresses.Address;
+import tasca1.n2.phones.Phone;
+
 public class PersonData {
     private String name;
     private Phone phone;

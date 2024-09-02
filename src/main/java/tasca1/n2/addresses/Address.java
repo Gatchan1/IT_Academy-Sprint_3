@@ -1,4 +1,4 @@
-package tasca1.n2;
+package tasca1.n2.addresses;
 
 public class Address {
     private String street;

@@ -1,4 +1,4 @@
-package tasca1.n2;
+package tasca1.n2.phones;
 
 public class Phone {
     private String number;

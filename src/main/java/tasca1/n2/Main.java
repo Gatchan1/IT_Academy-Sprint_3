@@ -1,7 +1,9 @@
 package tasca1.n2;
 
+import tasca1.n2.addresses.Address;
 import tasca1.n2.datafactories.*;
 import tasca1.n2.helpers.Input;
+import tasca1.n2.phones.Phone;
 
 public class Main {
     public static void main(String[] args) {
