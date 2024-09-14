@@ -12,8 +12,10 @@ public class Accelerate extends VehicleCommand {
 
     @Override
     public void execute() {
-        vehicle.setVelocity(vehicle.getVelocity() + velocityIncrease);
-        System.out.println("A " + vehicle.getClass().getSimpleName() + " has accelerated and its new speed is "
-                + vehicle.getVelocity() + "km/s.");
+        if (vehicle.isStarted()) {
+            vehicle.setVelocity(vehicle.getVelocity() + velocityIncrease);
+            System.out.println("A " + vehicle.getClass().getSimpleName() + " has accelerated " +
+                    "and its new speed is " + vehicle.getVelocity() + "km/s.");
+        }
     }
 }

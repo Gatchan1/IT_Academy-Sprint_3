@@ -12,8 +12,10 @@ public class Decelerate extends VehicleCommand {
 
     @Override
     public void execute() {
-        vehicle.setVelocity(vehicle.getVelocity() - velocityDecrease);
-        System.out.println("A " + vehicle.getClass().getSimpleName() + " has decelerated and its new speed is "
-                + vehicle.getVelocity() + "km/s.");
+        if (vehicle.isStarted()) {
+            vehicle.setVelocity(vehicle.getVelocity() - velocityDecrease);
+            System.out.println("A " + vehicle.getClass().getSimpleName() + " has decelerated " +
+                    "and its new speed is " + vehicle.getVelocity() + "km/s.");
+        }
     }
 }
