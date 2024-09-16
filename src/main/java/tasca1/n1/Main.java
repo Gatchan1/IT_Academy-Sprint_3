@@ -12,7 +12,7 @@ public class Main {
     private static void calculator() {
         result = Input.readDouble("Bienvenido a la calculadora sencilla." +
                 "\nIntroduce un número para empezar.");
-        newCommand();
+        newOperation();
         menu();
     }
 
@@ -21,7 +21,7 @@ public class Main {
         do {
             switch (options()) {
                 case 1:
-                    newCommand();
+                    newOperation();
                     break;
                 case 2:
                     undoCommand();
@@ -37,7 +37,7 @@ public class Main {
         } while (!exit);
     }
 
-    private static void newCommand() {
+    private static void newOperation() {
         prevResult = result;
         String command;
         System.out.println("El actual resultado es " + prevResult + ".");
