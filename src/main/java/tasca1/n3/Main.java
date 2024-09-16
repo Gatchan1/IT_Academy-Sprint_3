@@ -3,6 +3,7 @@ package tasca1.n3;
 import tasca1.n3.commands.Accelerate;
 import tasca1.n3.commands.Decelerate;
 import tasca1.n3.commands.StartEngine;
+import tasca1.n3.invoker.Invoker;
 import tasca1.n3.vehicles.*;
 
 public class Main {
@@ -16,15 +17,15 @@ public class Main {
         Accelerate command4 = new Accelerate(bike, 20);
         Decelerate command5 = new Decelerate(car, 15);
 
-        Invoker camera = new Invoker();
+        Invoker invoker = new Invoker();
 
-        camera.addCommand(command1);
-        camera.addCommand(command2);
-        camera.addCommand(command3);
-        camera.addCommand(command4);
-        camera.addCommand(command5);
+        invoker.addCommand(command1);
+        invoker.addCommand(command2);
+        invoker.addCommand(command3);
+        invoker.addCommand(command4);
+        invoker.addCommand(command5);
 
-        camera.executeCommands();
+        invoker.executeCommands();
     }
 
 }

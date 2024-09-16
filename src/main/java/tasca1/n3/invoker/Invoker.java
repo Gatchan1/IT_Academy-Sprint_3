@@ -1,4 +1,4 @@
-package tasca1.n3;
+package tasca1.n3.invoker;
 
 import tasca1.n3.commands.VehicleCommand;
 
@@ -9,7 +9,7 @@ public class Invoker {
     private List<VehicleCommand> commands = new ArrayList<VehicleCommand>();
 
     public void addCommand(VehicleCommand command) {
-         commands.add(command);
+        commands.add(command);
     }
 
     public void executeCommands() {
