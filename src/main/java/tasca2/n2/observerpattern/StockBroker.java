@@ -3,7 +3,7 @@ package tasca2.n2.observerpattern;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StockBroker {         // observable
+public class StockBroker implements StockBrokerObservable {
     private double stockPrice;
     private List<StockAgency> observers = new ArrayList<StockAgency>();
 
@@ -11,26 +11,24 @@ public class StockBroker {         // observable
         this.stockPrice = stockPrice;
     }
 
+    @Override
     public void addObserver(StockAgency observer) {
         observers.add(observer);
     }
-
+    
+    @Override
     public void removeObserver(StockAgency observer) {
         observers.remove(observer);
     }
 
-    public void notifyAllObservers(double oldValue) {
-        /* Me habría gustado hacer interfaces, o clases abstractas de Observer & Observable.
-        Pero no las hice porque quise enviar este parámetro double en este método...*/
-        observers.forEach(stockAgency -> stockAgency.refresh(oldValue));
+    @Override
+    public void notifyAllObservers() {
+        observers.forEach(stockAgency -> stockAgency.refresh(stockPrice));
     }
 
     public void setStockPrice(double stockPrice) {
-        if (this.stockPrice != stockPrice) {
-            double oldValue = this.stockPrice;
             this.stockPrice = stockPrice;
-            this.notifyAllObservers(oldValue);
-        }
+            this.notifyAllObservers();
     }
 
     public double getStockPrice() {
