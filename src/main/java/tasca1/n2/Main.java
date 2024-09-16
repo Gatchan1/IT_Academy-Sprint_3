@@ -18,7 +18,7 @@ public class Main {
                     break;
                 case 2: showData();
                     break;
-                case 0: System.out.println("Gràcies per utilitzar l'aplicació");
+                case 0: System.out.println("Gracias por utilizar la aplicación.");
                     exit = true;
                     break;
             }
@@ -50,28 +50,28 @@ public class Main {
         String name = Input.readString("Escribe el nombre de la persona o empresa.");
 
         Phone phone = null;
-        boolean askPhone = Input.readYesNo("""
+        boolean wantPhone = Input.readYesNo("""
                         ¿Quieres introducir su número de teléfono?
                         's': sí
                         'n': no""");
-        if (askPhone) {
+        if (wantPhone) {
             phone = askPhone(dataCreator);
         }
 
         Address address = null;
-        boolean askAddress = Input.readYesNo("""
+        boolean wantAddress = Input.readYesNo("""
                         ¿Quieres introducir su dirección?
                         's': sí
                         'n': no""");
-        if (askAddress) {
+        if (wantAddress) {
             address = askAddress(dataCreator);
         }
         PersonData personData;
-        if (askPhone && askAddress) {
+        if (wantPhone && wantAddress) {
             personData = new PersonData(name, phone, address);
-        } else if (askPhone) {
+        } else if (wantPhone) {
             personData = new PersonData(name, phone);
-        } else if (askAddress) {
+        } else if (wantAddress) {
             personData = new PersonData(name, address);
         } else  {
             personData = new PersonData(name);
@@ -111,33 +111,18 @@ public class Main {
     }
 
     private static Phone askPhone(DataFactory dataCreator) {
-        Phone phone;
-        do {
-            String phoneString = Input.readString("Introduce el número de teléfono, " +
+        String phoneString = Input.readString("Introduce el número de teléfono, " +
                     "sin espacios e incluyendo el prefijo internacional correcto.");
-            phone = dataCreator.createPhone(phoneString);
-            if (phone == null) {
-                System.out.println("El número introducido no es correcto. Vuelve a intentarlo.");
-            }
-        } while (phone == null);
-        return phone;
+        return dataCreator.createPhone(phoneString);
     }
 
     private static Address askAddress(DataFactory dataCreator) {
-        Address address;
-        do {
-            String street = Input.readString("Introduce la calle.");
+        String street = Input.readString("Introduce la calle.");
             int houseNumber = Input.readInt("Introduce el número de portal.");
             String floorAndDoor = Input.readString("Introduce piso y puerta (opcional).");
-            String postalCode = Input.readString("Introduce el código postal." +
-                    "Comprueba que el formato corresponde con el país.");
+            String postalCode = Input.readString("Introduce el código postal.");
             String city = Input.readString("Introduce la localidad.");
-            address = dataCreator.createAddress(street, houseNumber, floorAndDoor, postalCode, city);
-            if (address == null) {
-                System.out.println("La dirección introducida no es correcta. Vuelve a intentarlo.");
-            }
-        } while (address == null);
-        return address;
+            return dataCreator.createAddress(street, houseNumber, floorAndDoor, postalCode, city);
     }
 
     private static void showData() {

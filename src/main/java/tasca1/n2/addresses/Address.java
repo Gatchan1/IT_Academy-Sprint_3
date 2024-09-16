@@ -1,11 +1,12 @@
 package tasca1.n2.addresses;
 
-public class Address {
+public abstract class Address {
     private String street;
     private int houseNumber;
     private String floorAndDoor;
     private String postalCode;
     private String city;
+    protected String country;
 
     public Address(String street, int houseNumber, String floorAndDoor, String postalCode, String city) {
         this.street = street;
@@ -61,6 +62,7 @@ public class Address {
                 "\n  houseNumber: " + houseNumber +
                 "\n  floorAndDoor: " + floorAndDoor +
                 "\n  postalCode: " + postalCode +
-                "\n  city: " + city;
+                "\n  city: " + city +
+                "\n  country: " + country;
     }
 }
