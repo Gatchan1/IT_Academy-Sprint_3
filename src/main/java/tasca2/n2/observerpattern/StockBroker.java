@@ -11,21 +11,6 @@ public class StockBroker implements StockBrokerObservable {
         this.stockPrice = stockPrice;
     }
 
-    @Override
-    public void addObserver(StockAgency observer) {
-        observers.add(observer);
-    }
-    
-    @Override
-    public void removeObserver(StockAgency observer) {
-        observers.remove(observer);
-    }
-
-    @Override
-    public void notifyAllObservers() {
-        observers.forEach(stockAgency -> stockAgency.refresh(stockPrice));
-    }
-
     public void setStockPrice(double stockPrice) {
             this.stockPrice = stockPrice;
             this.notifyAllObservers();
@@ -33,5 +18,21 @@ public class StockBroker implements StockBrokerObservable {
 
     public double getStockPrice() {
         return stockPrice;
+    }
+
+    @Override
+    public void addObserver(StockAgency observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(StockAgency observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyAllObservers() {
+        System.out.println("Notifying observers...");
+        observers.forEach(stockAgency -> stockAgency.refresh(stockPrice));
     }
 }

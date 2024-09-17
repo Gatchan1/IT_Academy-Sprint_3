@@ -10,6 +10,7 @@ public class StockAgency implements StockAgencyObserver {
         oldValue = observable.getStockPrice();
     }
 
+    @Override
     public void refresh(double newValue) {
           if (oldValue > newValue) {
               System.out.println("An agency says: \"I see, the stocks are going down from "
