@@ -1,16 +1,16 @@
 package tasca2.n1;
 
 import tasca2.n1.builders.MasterPizza;
-import tasca2.n1.builders.PizzaHawaianBuilder;
+import tasca2.n1.builders.PizzaHawaiianBuilder;
 import tasca2.n1.builders.PizzaVegetarianBuilder;
 
 public class Main {
     public static void main(String[] args) {
-        Pizza hawaianPizza = new PizzaHawaianBuilder()
+        Pizza hawaiianPizza = new PizzaHawaiianBuilder()
                 .setSize(Size.SMALL)
                 .setDough(Dough.NORMAL)
                 .build();
-        System.out.println("hawaian Pizza: " + hawaianPizza);
+        System.out.println("hawaiian Pizza: " + hawaiianPizza);
 
         Pizza vegetarianPizzaModified = new PizzaVegetarianBuilder()
                 .setSize(Size.SMALL)
@@ -19,9 +19,9 @@ public class Main {
                 .build();
         System.out.println("vegetarian Pizza Modified: " + vegetarianPizzaModified);
 
-        PizzaHawaianBuilder hawaianBuilder = new PizzaHawaianBuilder();
-        Pizza standardHawaian = new MasterPizza<>(hawaianBuilder).build();
-        System.out.println("standard Hawaian pizza: " + standardHawaian);
+        PizzaHawaiianBuilder hawaiianBuilder = new PizzaHawaiianBuilder();
+        Pizza standardHawaiian = new MasterPizza<>(hawaiianBuilder).build();
+        System.out.println("standard Hawaiian pizza: " + standardHawaiian);
 
         PizzaVegetarianBuilder vegetarianBuilder = new PizzaVegetarianBuilder();
         Pizza standardVegetarian = new MasterPizza<>(vegetarianBuilder).build();
